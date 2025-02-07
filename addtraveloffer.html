@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rregistration page</title>
+  <link href="css/styles.css" rel="stylesheet" />
+
+</head>
+<body>
+  <p class="addtraveloffer">Add Travel Offer</p>
+  <form id="offerForm">
+    <label for="title">Titre de l'offre :</label>
+    <input type="text" id="title" name="title" minlength="3" required placeholder="Entrez le titre de l'offre" />
+
+    <label for="Destination">Destination :</label>
+    <input type="text" id="Destination" name="Destination" minlength="3" pattern="[A-Za-z\s]{3,}" required placeholder="Entrez la Destination" />
+
+    <label for="Departure Date">Departure Date :</label>
+    <input type="date" id="DepartureDate" name="Departure Date" minlength="3" />
+
+    <label for="Return Date">Return Date :</label>
+    <input type="date" id="ReturnDate" name="Return Date" minlength="3" />
+
+    <label for="prix">prix:</label>
+    <input type="text" id="prix" name="prix" minlength="3" step="0.01" min="0" required placeholder="Entrez le prix" />
+
+    <label for="category">Catégorie :</label>
+    <select id="category" name="category" required class="category-select">
+      <option value="vacation">Vacances</option>
+      <option value="business">Affaires</option>
+      <option value="adventure">Aventure</option>
+    </select>
+
+    <button type="add offer" class="bouton">add offer</button>
+  </form>
+
+    <script>
+      // JavaScript to handle the form submission
+      document.getElementById('offerForm').addEventListener('add offer', function(event) {
+        event.preventDefault(); // Prevent the form from submitting the traditional way
+  
+        // Gather form data
+        const formData = new FormData(this);
+  
+        // Use fetch to submit the data to a server (e.g., submit_offer.php)
+        fetch('submit_offer.php', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json()) // Assuming the server returns JSON data
+        .then(data => {
+          alert('Offer submitted successfully!');
+          console.log(data); // Handle the response data as needed
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('There was an error submitting your offer.');
+        });
+      });
+      document.getElementById('DepartureDate').addEventListener('change', function() {
+      const inputDate = this.value; // Get the date in yyyy-mm-dd format
+      const formattedDate = inputDate.split('-').reverse().join('/'); // Convert to dd/mm/yyyy
+      console.log(formattedDate); // Log or process the formatted date
+      // You can also assign it to another element or save it to the backend
+    });
+    </script>
+  
+</body>
+</html>
