@@ -1,0 +1,68 @@
+.addtraveloffer {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #34495e;
+}
+
+input, .category-select {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border 0.3s ease-in-out;
+}
+
+input:focus, .category-select:focus {
+  border-color: #1abc9c;
+  outline: none;
+}
+
+.bouton {
+  width: 100%;
+  background-color: #1abc9c;
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.bouton:hover {
+  background-color: #16a085;
+  transform: scale(1.05);
+}
+
+.bouton:focus {
+  outline: none;
+}
+
+#offerForm {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  #offerForm {
+    width: 90%;
+  }
+}
